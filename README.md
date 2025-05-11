@@ -1,2 +1,2 @@
 # game-manager
-Chatbot to find games on Steam
+Chatbot to find games on Steam.

@@ -7,7 +7,7 @@ from interfaceFeatures import slow_print, wrapped_print, loading_animation, text
 
 # Load all necessary data
 try:
-    slow_print('''
+    slow_print(r'''
      __          __  _                                                       
      \ \        / / | |                                                      
       \ \  /\  / /__| | ___ ___  _ __ ___   ___                              

@@ -6,7 +6,7 @@ The chatbot provides an intuitive and friendly experience for users to:
 - Track and manage their game collection
 - Search for games by name from a large dataset
 - Engage in small talk and trivia
-- Enjoy a personalised interaction through name recognition
+- Enjoy a personalized interaction through name recognition
 - Discover available features through built-in guidance
 
 ![example](img/example.png)
@@ -87,7 +87,7 @@ Helps users understand what the chatbot can do.
 
 ![architecture](img/architecture.png)
 
-The chatbot follows a structured and modular pipeline. When the user enters a query, the system begins by performing intent matching, comparing the input against a predefined corpus using similarity scores. The behaviour of the chatbot depends on the similarity threshold:
+The chatbot follows a structured and modular pipeline. When the user enters a query, the system begins by performing intent matching, comparing the input against a predefined corpus using similarity scores. The behavior of the chatbot depends on the similarity threshold:
 
 - < 0.3 → The chatbot cannot confidently determine intent and restarts the process
 - 0.3 – 0.6 → A confirmation prompt is shown, asking the user whether to proceed or restart
@@ -103,7 +103,7 @@ Once the intent is validated, the query is sent to one of the core systems:
 
 Each module then generates a final response and returns control to the main loop.
 
-The system’s implementation leverages several important components, including TF-IDF vectorisation, cosine similarity, data loading utilities, and preprocessing functions. These contribute to both the chatbot’s accuracy and flexibility.
+The system’s implementation leverages several important components, including TF-IDF vectorization, cosine similarity, data loading utilities, and preprocessing functions. These contribute to both the chatbot’s accuracy and flexibility.
 
 ## TF-IDF Vectorizer
 
@@ -113,15 +113,15 @@ The first step in processing user input is transforming text into numerical feat
 - Columns represent documents
 - Each cell contains a weight based on TF-IDF (term frequency–inverse document frequency)
 
-TF-IDF is chosen over simpler weighting methods because it emphasizes words that characterise each document while downplaying common terms. Although sparse matrices can be memory-inefficient, this project’s dataset is small enough that this trade-off is acceptable.
+TF-IDF is chosen over simpler weighting methods because it emphasizes words that characterize each document while downplaying common terms. Although sparse matrices can be memory-inefficient, this project’s dataset is small enough that this trade-off is acceptable.
 
-Using Scikit-learn, the TF-IDF vectoriser is trained on a fixed corpus. The corpus undergoes tokenisation and lemmatisation before transformation. Stop-word removal is intentionally disabled because many personal or conversational inputs (e.g., “How are you?”) consist mostly of stop words and would lose meaning if removed.
+Using Scikit-learn, the TF-IDF vectorizer is trained on a fixed corpus. The corpus undergoes tokenization and lemmatization before transformation. Stop-word removal is intentionally disabled because many personal or conversational inputs (e.g., “How are you?”) consist mostly of stop words and would lose meaning if removed.
 
 ## Cosine Similarity
 
 Cosine similarity is used alongside the TF-IDF vectoriser for intent matching. The user query is:
 
-- Lemmatised
+- Lemmatized
 - Transformed into a TF-IDF vector
 - Compared against the corpus matrix
 
